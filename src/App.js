@@ -11,7 +11,8 @@ const App = () => {
   const [ApiCallCount, setApiCallCount] = useState(0);     // counter to count how  many time add/edit api call
   const [displayForm, setDisplayForm] = useState({         // for conditional rendering form and open form conditionally for add and update
     show: false,
-    option: ""
+    option: "",
+    index: null
   });
   useEffect(() => {
     // get all the component data only first time

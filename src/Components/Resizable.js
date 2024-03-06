@@ -6,12 +6,12 @@ import "./Resizable.css";
 // this component render all the data
 
 const Resizable = (props) => {
-    
+
     const url = process.env.REACT_APP_BACKEND_URL;
 
-    const handleButtonClick = async (elm, option) => {
-        // to show form and set option which is add or update
-        props.setDisplayForm({ show: true, option });
+    const handleButtonClick = async (elm, option,index) => {
+        // to show form and set option which is add or update and send index to access the right data in form component
+        props.setDisplayForm({ show: true, option ,index});
         // delete data from database when user click on add button
         if (option === 'add') {
             try {
@@ -34,10 +34,10 @@ const Resizable = (props) => {
                     resizeHandles={['s', 'w', 'e', 'n', 'sw', 'nw', 'se', 'ne']}  // resizable sides
                 >
                     <div>
-                        <button onClick={() => handleButtonClick(elm, 'add')}>Add</button>
-                        <button onClick={() => handleButtonClick(elm, "update")}>Update</button>
+                        <button onClick={() => handleButtonClick(elm, 'add', i)}>Add</button>
+                        <button onClick={() => handleButtonClick(elm, "update", i)}>Update</button>
                         {/* show this line when there is no data present for component */}
-                        {elm.heading === '' && elm.paragraph === '' && <div>Nothing Data to display</div>} 
+                        {elm.heading === '' && elm.paragraph === '' && <div>Nothing Data to display</div>}
                         <h1 className="heading">{elm.heading}</h1>
                         <p className="paragraph">{elm.paragraph}</p>
                     </div>

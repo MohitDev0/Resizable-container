@@ -10,7 +10,7 @@ const Form = ({ componentData, setComponentData, setDisplayForm, displayForm, se
         // get value from form
         const { heading, paragraph } = e.target;
         // update value in database
-        await axios.put(url + "update", { _id: componentData[0]._id, heading: heading.value, paragraph: paragraph.value })
+        await axios.put(url + "update", { _id: componentData[displayForm.index]._id, heading: heading.value, paragraph: paragraph.value })
             .then((res) => {
                 setComponentData(res.data);   // update the componentData useState
             })
@@ -25,9 +25,9 @@ const Form = ({ componentData, setComponentData, setDisplayForm, displayForm, se
             <span className='close' onClick={() => { setDisplayForm({ show: false }) }}>x</span>
             <form className='form' onSubmit={submit_form}>
                 <label>Heading : </label>
-                <input type='text' name='heading' placeholder='Heading' defaultValue={displayForm.option === "update" ? componentData[0].heading : ""} required></input>
+                <input type='text' name='heading' placeholder='Heading' defaultValue={displayForm.option === "update" ? componentData[displayForm.index].heading : ""} required></input>
                 <label>Paragraph : </label>
-                <textarea cols={10} rows={10} name='paragraph' placeholder='Paragraph' defaultValue={displayForm.option === "update" ? componentData[0].paragraph : ""} required></textarea>
+                <textarea cols={10} rows={10} name='paragraph' placeholder='Paragraph' defaultValue={displayForm.option === "update" ? componentData[displayForm.index].paragraph : ""} required></textarea>
                 <button type='submit' className='form_btn'>Submit</button>
             </form>
         </div>
