@@ -1,0 +1,81 @@
+.resizable-container {
+    position: relative;
+    border: 1px solid #ccc;
+    overflow: hidden;
+    margin: 8px;
+
+}
+
+.resizable-container>div {
+    padding: 10px;
+    width: 90%;
+    height: 90%;
+    overflow: scroll;
+    scrollbar-width: none;
+}
+
+.resizable-container>div::-webkit-scrollbar {
+    width: 1px;
+    padding: 0px;
+}
+
+.react-resizable-handle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+.react-resizable-handle-sw {
+    bottom: 0;
+    left: 0;
+    cursor: sw-resize;
+}
+
+.react-resizable-handle-se {
+    bottom: 0;
+    right: 0;
+    cursor: se-resize;
+}
+
+.react-resizable-handle-nw {
+    top: 0;
+    left: 0;
+    cursor: nw-resize;
+}
+
+.react-resizable-handle-ne {
+    top: 0;
+    right: 0;
+    cursor: ne-resize;
+}
+
+.react-resizable-handle-w {
+    left: 0;
+    top: 50%;
+    margin-top: -5px;
+    cursor: w-resize;
+}
+
+.react-resizable-handle-e {
+    right: 0;
+    top: 50%;
+    margin-top: -5px;
+    cursor: e-resize;
+}
+
+.react-resizable-handle-n {
+    top: 0;
+    left: 50%;
+    margin-left: -5px;
+    cursor: n-resize;
+}
+
+.react-resizable-handle-s {
+    bottom: 0;
+    left: 50%;
+    margin-left: -5px;
+    cursor: s-resize;
+}
